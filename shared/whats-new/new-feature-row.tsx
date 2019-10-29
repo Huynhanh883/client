@@ -54,6 +54,7 @@ const NewFeature = (props: Props) => {
         {props.image && (
           <Kb.Box2 direction="vertical" style={styles.imageContainer}>
             <Kb.RequireImage
+              useSrcSet={true}
               src={props.image}
               style={Styles.collapseStyles([styles.image, props.imageStyle])}
             />

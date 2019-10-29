@@ -15,6 +15,7 @@ export type ReqProps = {
   src: any
   style?: StylesCrossPlatform | null
   resizeMode?: ResizeMode
+  useSrcSet?: boolean
 }
 
 export default class Image extends React.Component<Props> {}
