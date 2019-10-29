@@ -125,6 +125,7 @@ class CodePage2 extends React.Component<Props, State> {
       default:
         Flow.ifFlowComplainsAboutThisFunctionYouHaventHandledAllCasesInASwitch(this.state.tab)
     }
+    console.log('JRY', {blueBackground, greenBackground})
     return (
       <Kb.Box2
         direction="vertical"
@@ -141,6 +142,7 @@ class CodePage2 extends React.Component<Props, State> {
           }
         >
           <Kb.RequireImage
+            useSrcSet={true}
             src={this.state.tab === 'QR' ? blueBackground : greenBackground}
             style={
               this.props.currentDeviceAlreadyProvisioned ? styles.backgroundOnLeft : styles.backgroundOnRight
