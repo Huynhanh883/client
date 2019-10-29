@@ -1,15 +1,11 @@
 import * as React from 'react'
-import path from 'path'
 import {Props, ReqProps} from './image'
 
-const multiples = [1, 2, 3]
-// Converts from a single src to srcset by appending @2x @3x filename extensions
-const srcToSrcSet = (src: string) => {
-  const {dir, name, ext} = path.parse(src)
-  return multiples
+const formatSrcSet = (srcSet: {[mult: string]: string}): string => {
+  return Object.keys(srcSet)
     .map(mult => {
-      const newSrc = `${dir}/${name}${mult > 1 ? `@${mult}x` : ''}${ext} ${mult}x`
-      return newSrc
+      const url = srcSet[mult]
+      return `${url} ${mult}x`
     })
     .join(', ')
 }
@@ -17,8 +13,8 @@ const srcToSrcSet = (src: string) => {
 // @ts-ignore clash between StylesCrossPlatform and React.CSSProperties
 const RequireImage = ({src, useSrcSet, style}: ReqProps) => (
   <img
-    src={useSrcSet ? undefined : src}
-    srcSet={useSrcSet ? srcToSrcSet(src) : undefined}
+    src={src}
+    srcSet={useSrcSet ? formatSrcSet(src) : undefined}
     // @ts-ignore TODO fix styles
     style={style}
   />

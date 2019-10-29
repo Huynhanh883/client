@@ -6,11 +6,19 @@ import {keybaseFM} from '../constants/whats-new'
 import NewFeatureRow from './new-feature-row'
 
 /* Include images */
-/* const imageName = require('../images/release/MAJ.MIN.PATCH/name.png') */
+/* const S s imageName = require('../images/release/MAJ.MIN.PATCH/name.png') */
 const fastUserSwitchingImage = require('../images/releases/4.7.0/fast-user-switching.png')
+const fastUserSwitchingImage2x = require('../images/releases/4.7.0/fast-user-switching@2x.png')
+const fastUserSwitchingImage3x = require('../images/releases/4.7.0/fast-user-switching@3x.png')
 const pinnedMessagesImage = require('../images/releases/4.7.0/pinned-messages.png')
+const pinnedMessagesImage2x = require('../images/releases/4.7.0/pinned-messages@2x.png')
+const pinnedMessagesImage3x = require('../images/releases/4.7.0/pinned-messages@3x.png')
 const darkModeImage = require('../images/releases/4.7.0/dark-mode.png')
+const darkModeImage2x = require('../images/releases/4.7.0/dark-mode@2x.png')
+const darkModeImage3x = require('../images/releases/4.7.0/dark-mode@3x.png')
 const keybaseFMImage = require('../images/releases/4.7.0/keybase-fm.png')
+const keybaseFMImage2x = require('../images/releases/4.7.0/keybase-fm@2x.png')
+const keybaseFMImage3x = require('../images/releases/4.7.0/keybase-fm@3x.png')
 
 export type VersionProps = {
   seen: boolean
@@ -42,12 +50,24 @@ export const VersionTitle = ({title}: {title: string}) => (
 export const Current = ({seen, onNavigate, onNavigateExternal}: VersionProps) => {
   return (
     <Version>
-      <NewFeatureRow noSeparator={true} seen={seen} image={fastUserSwitchingImage}>
+      <NewFeatureRow
+        noSeparator={true}
+        seen={seen}
+        image={{
+          1: fastUserSwitchingImage,
+          2: fastUserSwitchingImage2x,
+          3: fastUserSwitchingImage3x,
+        }}
+      >
         You can now quickly switch between all your signed in accounts from the user menu.
       </NewFeatureRow>
       <NewFeatureRow
         seen={seen}
-        image={darkModeImage}
+        image={{
+          1: darkModeImage,
+          2: darkModeImage2x,
+          3: darkModeImage3x,
+        }}
         primaryButtonText="Open display settings"
         onPrimaryButtonClick={() => {
           onNavigate({path: [{props: {}, selected: displayTab}]})
@@ -72,12 +92,26 @@ export const Current = ({seen, onNavigate, onNavigateExternal}: VersionProps) =>
         {` `}
         <Kb.Emoji allowFontScaling={true} size={Styles.globalMargins.small} emojiName=":phone:" />
       </NewFeatureRow>
-      <NewFeatureRow seen={seen} image={pinnedMessagesImage}>
+      <NewFeatureRow
+        seen={seen}
+        image={{
+          1: pinnedMessagesImage,
+          2: pinnedMessagesImage2x,
+          3: pinnedMessagesImage3x,
+        }}
+      >
         Chat admins can now pin messages.
         {` `}
         <Kb.Emoji size={Styles.globalMargins.small} emojiName=":pushpin:" />
       </NewFeatureRow>
-      <NewFeatureRow seen={seen} image={keybaseFMImage}>
+      <NewFeatureRow
+        seen={seen}
+        image={{
+          1: keybaseFMImage,
+          2: keybaseFMImage2x,
+          3: keybaseFMImage3x,
+        }}
+      >
         Listen to
         {` `}
         <Kb.Icon

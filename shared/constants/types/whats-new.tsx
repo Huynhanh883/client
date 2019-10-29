@@ -8,7 +8,7 @@ export type WhatsNewVersions = [CurrentVersion, LastVersion, LastLastVersion]
 export type Feature = {
   primaryButtonText?: string
   secondaryButtonText?: string
-  image?: string | null
+  image?: string | {[mult: string]: string}
 }
 
 export type FeatureWithSeenState = Feature & {seen: boolean}

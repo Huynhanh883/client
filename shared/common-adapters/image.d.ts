@@ -2,6 +2,7 @@ import * as React from 'react'
 import {StylesCrossPlatform} from '../styles'
 
 type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center' | 'repeat'
+type SrcSetSizes = '1' | '2' | '3'
 
 export type Props = {
   src: string
@@ -12,7 +13,7 @@ export type Props = {
 }
 
 export type ReqProps = {
-  src: any
+  src: string | {[mult: string]: string}
   style?: StylesCrossPlatform | null
   resizeMode?: ResizeMode
   useSrcSet?: boolean
