@@ -9,10 +9,10 @@ import NewFeatureRow from './new-feature-row'
 /* const S s imageName = require('../images/release/MAJ.MIN.PATCH/name.png') */
 
 // For desktop
-const fastUserSwitchingImagePath = '../images/releases/4.7.0/fast-user-switching.png'
-const pinnedMessagesImagePath = '../images/releases/4.7.0/pinned-messages.png'
-const darkModeImagePath = '../images/releases/4.7.0/dark-mode.png'
-const keybaseFMImagePath = '../images/releases/4.7.0/keybase-fm.png'
+const fastUserSwitchingImagePath = Kb.srcToSrcSet('../images/releases/4.7.0/fast-user-switching.png')
+const pinnedMessagesImagePath = Kb.srcToSrcSet('../images/releases/4.7.0/pinned-messages.png')
+const darkModeImagePath = Kb.srcToSrcSet('../images/releases/4.7.0/dark-mode.png')
+const keybaseFMImagePath = Kb.srcToSrcSet('../images/releases/4.7.0/keybase-fm.png')
 // For mobile
 const fastUserSwitchingImage = require('../images/releases/4.7.0/fast-user-switching.png')
 const pinnedMessagesImage = require('../images/releases/4.7.0/pinned-messages.png')

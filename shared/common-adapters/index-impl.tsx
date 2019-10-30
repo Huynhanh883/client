@@ -142,6 +142,9 @@ module.exports = {
   get Image() {
     return require('./image').default
   },
+  get srcToSrcSet() {
+    return require('./image').srcToSrcSet
+  },
   get InfoNote() {
     return require('./info-note').default
   },

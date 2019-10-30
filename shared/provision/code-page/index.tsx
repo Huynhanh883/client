@@ -11,10 +11,10 @@ import {isAndroid} from '../../constants/platform'
 import Troubleshooting from '../troubleshooting'
 import DeviceIcon from '../../devices/device-icon'
 // Will be resolved by Kb.Image using resolveImageURL
-const blueBackgroundPath = '../../images/illustrations/bg-provisioning-blue.png'
-const greenBackgroundPath = '../../images/illustrations/bg-provisioning-green.png'
-const blueBackground = require(blueBackgroundPath)
-const greenBackground = require(greenBackgroundPath)
+const blueBackgroundPath = Kb.srcToSrcSet('../../images/illustrations/bg-provisioning-blue.png')
+const greenBackgroundPath = Kb.srcToSrcSet('../../images/illustrations/bg-provisioning-green.png')
+const blueBackground = require('../../images/illustrations/bg-provisioning-blue.png')
+const greenBackground = require('../../images/illustrations/bg-provisioning-green.png')
 
 export type DeviceType = 'mobile' | 'desktop'
 export type Tab = 'QR' | 'enterText' | 'viewText'
@@ -163,7 +163,6 @@ class CodePage2 extends React.Component<Props, State> {
               }
             />
           )}
-          />
         </Kb.Box2>
         {!this.props.currentDeviceAlreadyProvisioned && !Styles.isMobile && (
           <>

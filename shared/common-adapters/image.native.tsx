@@ -15,5 +15,7 @@ const RequireImage = ({src, style}: ReqProps) => (
   />
 )
 
+export const srcToSrcSet = () => {}
+
 export default Image
 export {RequireImage}

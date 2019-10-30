@@ -2,8 +2,6 @@ import * as React from 'react'
 import {StylesCrossPlatform} from '../styles'
 
 type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center' | 'repeat'
-type SrcSetSizes = '1' | '2' | '3'
-
 export type Props = {
   src: string
   style?: any
@@ -19,6 +17,8 @@ export type ReqProps = {
   style?: StylesCrossPlatform | null
   resizeMode?: ResizeMode
 }
+
+export declare function srcToSrcSet(src: string): string
 
 export default class Image extends React.Component<Props> {}
 // Can accept require()
