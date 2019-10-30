@@ -8,8 +8,10 @@ import HeaderIcon from './icon/'
 import NewFeatureRow from './new-feature-row'
 import WhatsNew from '.'
 
-const darkModeImage = require('../images/releases/storybook/dark-mode.png')
-const keybaseFMImage = require('../images/releases/storybook/keybase-fm.png')
+const darkModeImagePath = '../images/releases/4.7.0/dark-mode.png'
+const keybaseFMImagePath = '../images/releases/4.7.0/keybase-fm.png'
+const darkModeImage = require('../images/releases/4.7.0/dark-mode.png')
+const keybaseFMImage = require('../images/releases/4.7.0/keybase-fm.png')
 
 const commonNewFeatureProps = {
   primaryButtonText: undefined,
@@ -152,7 +154,7 @@ const load = () => {
             onSecondaryButtonClick={Sb.action('onSecondaryButtonClick')}
             {...feature}
             seen={true}
-            image={keybaseFMImage}
+            image={Styles.isMobile ? keybaseFMImage : keybaseFMImagePath}
           >
             {feature.text}
           </NewFeatureRow>
@@ -170,7 +172,7 @@ const load = () => {
             onSecondaryButtonClick={Sb.action('onSecondaryButtonClick')}
             {...feature}
             seen={true}
-            image={darkModeImage}
+            image={Styles.isMobile ? darkModeImage : darkModeImagePath}
             imageStyle={styles.roundedImage}
           >
             {feature.text}

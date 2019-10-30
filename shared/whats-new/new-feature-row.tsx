@@ -53,11 +53,18 @@ const NewFeature = (props: Props) => {
         </Kb.Text>
         {props.image && (
           <Kb.Box2 direction="vertical" style={styles.imageContainer}>
-            <Kb.RequireImage
-              useSrcSet={typeof props.image === 'object'}
-              src={props.image}
-              style={Styles.collapseStyles([styles.image, props.imageStyle])}
-            />
+            {Styles.isMobile ? (
+              <Kb.RequireImage
+                src={props.image}
+                style={Styles.collapseStyles([styles.image, props.imageStyle])}
+              />
+            ) : (
+              <Kb.Image
+                useSrcSet={true}
+                src={props.image}
+                style={Styles.collapseStyles([styles.image, props.imageStyle])}
+              />
+            )}
           </Kb.Box2>
         )}
         <Kb.Box2 direction="horizontal" style={styles.buttonRowContainer} gap="xtiny">

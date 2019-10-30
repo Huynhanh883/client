@@ -3,15 +3,18 @@ import * as Constants from '../../constants/provision'
 import * as Kb from '../../common-adapters'
 import * as Styles from '../../styles'
 import * as Flow from '../../util/flow'
+import * as Types from '../../constants/types/provision'
+import * as DeviceTypes from '../../constants/types/devices'
 import QRImage from './qr-image'
 import QRScan from './qr-scan/container'
 import {isAndroid} from '../../constants/platform'
 import Troubleshooting from '../troubleshooting'
-const blueBackground = require('../../images/illustrations/bg-provisioning-blue.png')
-const greenBackground = require('../../images/illustrations/bg-provisioning-green.png')
-import * as Types from '../../constants/types/provision'
 import DeviceIcon from '../../devices/device-icon'
-import * as DeviceTypes from '../../constants/types/devices'
+// Will be resolved by Kb.Image using resolveImageURL
+const blueBackgroundPath = '../../images/illustrations/bg-provisioning-blue.png'
+const greenBackgroundPath = '../../images/illustrations/bg-provisioning-green.png'
+const blueBackground = require(blueBackgroundPath)
+const greenBackground = require(greenBackgroundPath)
 
 export type DeviceType = 'mobile' | 'desktop'
 export type Tab = 'QR' | 'enterText' | 'viewText'
@@ -125,7 +128,6 @@ class CodePage2 extends React.Component<Props, State> {
       default:
         Flow.ifFlowComplainsAboutThisFunctionYouHaventHandledAllCasesInASwitch(this.state.tab)
     }
-    console.log('JRY', {blueBackground, greenBackground})
     return (
       <Kb.Box2
         direction="vertical"
@@ -141,12 +143,26 @@ class CodePage2 extends React.Component<Props, State> {
               : styles.imageContainerOnRight
           }
         >
-          <Kb.RequireImage
-            useSrcSet={true}
-            src={this.state.tab === 'QR' ? blueBackground : greenBackground}
-            style={
-              this.props.currentDeviceAlreadyProvisioned ? styles.backgroundOnLeft : styles.backgroundOnRight
-            }
+          {Styles.isMobile ? (
+            <Kb.RequireImage
+              src={this.state.tab === 'QR' ? blueBackground : greenBackground}
+              style={
+                this.props.currentDeviceAlreadyProvisioned
+                  ? styles.backgroundOnLeft
+                  : styles.backgroundOnRight
+              }
+            />
+          ) : (
+            <Kb.Image
+              useSrcSet={true}
+              src={this.state.tab === 'QR' ? blueBackgroundPath : greenBackgroundPath}
+              style={
+                this.props.currentDeviceAlreadyProvisioned
+                  ? styles.backgroundOnLeft
+                  : styles.backgroundOnRight
+              }
+            />
+          )}
           />
         </Kb.Box2>
         {!this.props.currentDeviceAlreadyProvisioned && !Styles.isMobile && (

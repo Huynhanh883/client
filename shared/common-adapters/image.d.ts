@@ -7,16 +7,17 @@ type SrcSetSizes = '1' | '2' | '3'
 export type Props = {
   src: string
   style?: any
+  // desktop-only: transform src prop into srcSet for @2x @3x images
+  useSrcSet?: boolean
   onDragStart?: (e: React.SyntheticEvent) => void
   onLoad?: (e: React.BaseSyntheticEvent) => void
   resizeMode?: ResizeMode
 }
 
 export type ReqProps = {
-  src: string | {[mult: string]: string}
+  src: any
   style?: StylesCrossPlatform | null
   resizeMode?: ResizeMode
-  useSrcSet?: boolean
 }
 
 export default class Image extends React.Component<Props> {}
